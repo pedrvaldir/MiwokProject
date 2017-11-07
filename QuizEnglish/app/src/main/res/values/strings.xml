@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Quiz English</string>
+
+    <!-- PERGUNTAS -->
+    <string name="pergunta1">1 - Marque os itens que utilizam o pronome interrogativo (When)</string>
+    <string name="pergunta2">2 - Como se escreve animal em inglês  </string>
+    <string name="pergunta3">3 - De acordo com a frase \"My uncle has a ewe in his farm.\". Quais afirmações estão corretas? \nA - A tradução de ewe é ovelha\nB - deve-se usar \"an\" ao invés de \"a\"\nC - C - O Correto é \"Their uncle\"  </string>
+    <string name="pergunta4">4 - Qual a tradução correta para \"Meu pai é muito preguiçoso!\"?</string>
+    <string name="pergunta5">5 - Qual o significado de \"Avocado\"?</string>
+    <string name="pergunta6">6 - Qual destas alternativas não é uma parte do corpo?</string>
+    <string name="pergunta7">7 - Qual a tradução correta para \"Nowadays\"</string>
+
+    <!-- respostas -->
+    <!-- alternativas p1-->
+    <string name="p1.r1">A Chair</string>
+    <string name="p1.r2">At 7:00</string> <!--correto-->
+    <string name="p1.r3">Twelve</string>
+    <string name="p1.r4">On Monday</string> <!--correto-->
+
+    <!-- alternativas p3-->
+    <string name="p3.1">Alternativa A</string>
+    <string name="p3.2">Alternativa C</string>
+    <string name="p3.3">Todas estão corretas</string>
+
+    <!--Alternativas p4-->
+    <string name="p4.r1">My father is not lazy!</string>
+    <string name="p4.r2">My dad é very courageous!</string>
+    <string name="p4.r3">I like to dance</string>
+    <string name="p4.r4">My father is very lazy!</string>  <!--correto-->
+
+    <!--alternativas p6-->
+    <string name="p6.1">Shoulder</string>
+    <string name="p6.2">Hand</string>
+    <string name="p6.3">Number</string> <!--correto-->
+    <string name="p6.4">Arm</string>
+
+    <!--alternativas p7-->
+    <string name="p7.1">Nenhum dia</string>
+    <string name="p7.2">Hoje em dia</string>
+    <string name="p7.3">Todo dia</string>
+
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Futebol Americano</string>
+    <string name="btn_touch_down">Touch Down</string>
+    <string name="btn_extra_point">Extra Point</string>
+    <string name="btn_field_gol">Field Goal</string>
+    <string name="btn_safety">Safety</string>
+</resources>

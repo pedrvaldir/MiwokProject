@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:padding="18dp">
+        <!--PERGUNTA 1 -->
+        <TextView
+            style="@style/TituloPerg"
+            android:text="@string/pergunta1" />
+        <!--RESPOSTA 1 a 4 -->
+        <CheckBox
+            android:id="@+id/resposta_one_checkbox"
+            style="@style/Respostas"
+            android:text="@string/p1.r1" />
+        <CheckBox
+            android:id="@+id/resposta_two_checkbox"
+            style="@style/Respostas"
+            android:text="@string/p1.r2" />
+        <CheckBox
+            android:id="@+id/resposta_three_checkbox"
+            style="@style/Respostas"
+            android:text="@string/p1.r3" />
+        <CheckBox
+            android:id="@+id/resposta_four_checkbox"
+            style="@style/Respostas"
+            android:text="@string/p1.r4" />
+
+        <!--PERGUNTA 2 -->
+        <TextView
+            style="@style/TituloPerg"
+            android:text="@string/pergunta2" />
+        <EditText
+            android:id="@+id/resposta_field"
+            style="@style/Respostas"
+            android:layout_width="250dp"
+            android:hint="digite" />
+
+        <!--PERGUNTA 3 -->
+        <TextView
+            style="@style/TituloPerg"
+            android:text="@string/pergunta3" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--RESPOSTA A, B e C-->
+            <RadioButton
+                android:id="@+id/radio_respostaA"
+                style="@style/Respostas"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/p3.1" />
+
+            <RadioButton
+                android:id="@+id/radio_respostaB"
+                style="@style/Respostas"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/p3.2" />
+
+            <RadioButton
+                android:id="@+id/radio_respostaC"
+                style="@style/Respostas"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/p3.3" />
+        </RadioGroup>
+
+        <!--PERGUNTA 4-->
+        <TextView
+            style="@style/TituloPerg"
+            android:text="@string/pergunta4" />
+        <!--1 ao 4-->
+        <CheckBox
+            android:id="@+id/resposta_one_checkbox4"
+            style="@style/Respostas"
+            android:text="@string/p4.r1" />
+        <CheckBox
+            android:id="@+id/resposta_two_checkbox4"
+            style="@style/Respostas"
+            android:text="@string/p4.r2" />
+        <CheckBox
+            android:id="@+id/resposta_three_checkbox4"
+            style="@style/Respostas"
+            android:text="@string/p4.r3" />
+        <CheckBox
+            android:id="@+id/resposta_four_checkbox4"
+            style="@style/Respostas"
+            android:text="@string/p4.r4" />
+
+        <!--PERGUNTA 5-->
+        <TextView
+            style="@style/TituloPerg"
+            android:text="@string/pergunta5" />
+        <EditText
+            android:id="@+id/resposta_field5"
+            style="@style/Respostas"
+            android:layout_width="250dp"
+            android:hint="digite"
+            android:inputType="text" />
+
+        <!--PERGUNTA 6-->
+        <TextView
+            style="@style/TituloPerg"
+            android:text="@string/pergunta6" />
+        <!--1 ao 4 -->
+        <CheckBox
+            android:id="@+id/resposta_one_checkbox6"
+            style="@style/Respostas"
+            android:text="@string/p6.1" />
+        <CheckBox
+            android:id="@+id/resposta_two_checkbox6"
+            style="@style/Respostas"
+            android:text="@string/p6.2" />
+        <CheckBox
+            android:id="@+id/resposta_three_checkbox6"
+            style="@style/Respostas"
+            android:text="@string/p6.3" />
+        <CheckBox
+            android:id="@+id/resposta_four_checkbox6"
+            style="@style/Respostas"
+            android:text="@string/p6.4" />
+
+        <!--PERGUNTA 7-->
+        <TextView
+            style="@style/TituloPerg"
+            android:text="@string/pergunta7" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--RESPOSTA A -->
+            <RadioButton
+                android:id="@+id/radio_respostaA7"
+                style="@style/Respostas"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/p7.1" />
+
+            <RadioButton
+                android:id="@+id/radio_respostaB7"
+                style="@style/Respostas"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/p7.2" />
+
+            <RadioButton
+                android:id="@+id/radio_respostaC7"
+                style="@style/Respostas"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/p7.3" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="responderQuest"
+                android:text="responder" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
