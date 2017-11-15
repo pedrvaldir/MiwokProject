@@ -27,16 +27,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Set the content of the activity to use the activity_main.xml layout file
+        // Definido o conteúdo da atividade para usar o arquivo de layout activity_main.xml
         setContentView(R.layout.activity_main);
 
+        TextView numbers = (TextView) findViewById(R.id.numbers);
+        TextView colors = (TextView) findViewById(R.id.colors);
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+        TextView family = (TextView) findViewById(R.id.family);
 
-
-        TextView numbers = (TextView)findViewById(R.id.numbers);
-
-        //substituido abaixo para forma mais simples, usando o metodo construtor do objeto (NumbersClickListeners clickListeners = new NumbersClickListeners();)
-
-        // usando a classe ((NumbersClickListeners)) -> numbers.setOnClickListeners(New OnClickListeners());
+        /*substituido abaixo para forma mais simples, usando o metodo construtor do objeto (NumbersClickListeners clickListeners = new NumbersClickListeners();)
+         * usando a classe ((NumbersClickListeners)) -> numbers.setOnClickListeners(New OnClickListeners());
+         *
+         *Encontrar a view que mostra a categoria NUMBERS
+        */
         numbers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,13 +47,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(numbersIntent);
             }
         });
-
-    }
-
-
-    //APAGAR USADO PARA MOSTARAR CHAMANDO NO XML ONLICK
-    public void openNumbersList(View view){
-    Intent intent = new Intent(this, NumbersActivity.class);
-        startActivity(intent);
+        //Encontrar a view que mostra a categoria COLORS
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorsIntent);
+            }
+        });
+        //Encontrar a view que mostra a categoria FAMILY
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(familyIntent);
+            }
+        });
+        //Encontrar a view que mostra a categoria PHRASES
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phrasesIntent);
+            }
+        });
     }
 }
