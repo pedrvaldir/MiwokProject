@@ -12,7 +12,7 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         //CRIAR A LISTA DE PALAVRAS
         ArrayList<Word> words = new ArrayList<>();
