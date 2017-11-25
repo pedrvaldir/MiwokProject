@@ -11,6 +11,10 @@ public class Word {
     private String mMiworkTranslation;
     /**Tradução miwok para a palavra*/
     private String mDefaultTranslation;
+    /** ID de recurso de áudio para a palavra */
+    private  int mAudioResourceId;
+
+
     /**Id Recurso da imagem para a palavra*/
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
@@ -25,15 +29,17 @@ public class Word {
      * @param imageResourceId é o id do recurso de imagem para a tradução especifica
      */
 
-    public Word(String miworkTranslation, String defaultTranslation, int imageResourceId) {
+    public Word(String miworkTranslation, String defaultTranslation, int imageResourceId, int  audioResourceId) {
        mMiworkTranslation = miworkTranslation;
        mDefaultTranslation = defaultTranslation;
        mImageResourceId = imageResourceId;
+       mAudioResourceId = audioResourceId;
     }
 
-    public Word(String miworkTranslation, String defaultTranslation){
+    public Word(String miworkTranslation, String defaultTranslation, int  audioResourceId){
         mMiworkTranslation = miworkTranslation;
         mDefaultTranslation = defaultTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -58,5 +64,8 @@ public class Word {
 
     public  boolean hasImage(){
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    public int getAudioResourceId() {return mAudioResourceId;
     }
 }
