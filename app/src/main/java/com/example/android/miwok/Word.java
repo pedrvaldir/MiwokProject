@@ -56,7 +56,6 @@ public class Word {
     public String getDefaultTranslation() {
         return mDefaultTranslation;
     }
-
     /**
      * Retorna o ID da imagem da palavra
      */
