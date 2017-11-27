@@ -10,10 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-
 import java.util.ArrayList;
-
-import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -39,13 +36,9 @@ public class NumbersActivity extends AppCompatActivity {
                 // O caso AUDIOFOCUS_LOSS significa que perdemos foco de áudio e
                 // Parar reprodução e limpeza de recursos
                 releaseMediaPlayer();
-                // Stop playback
             }
         }
     };
-
-
-    // Request audio focus for playback int result = am.requestAudioFocus(afChangeListener, // Use the music stream. AudioManager.STREAM_MUSIC, // Request permanent focus. AudioManager.AUDIOFOCUS_GAIN); if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) { // Start playback }
 
     /**
      * Este ouvinte é ativado quando o {@link MediaPlayer} foi concluído
@@ -64,9 +57,8 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        //Create and setup the {@link AudioManager} to request audio focus
+        //Crie e configure o {@link AudioManager} para solicitar o foco de áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-
 
         //CRIAR A LISTA DE PALAVRAS
         final ArrayList<Word> words = new ArrayList<>();
@@ -98,26 +90,25 @@ public class NumbersActivity extends AppCompatActivity {
                 // reproduzir um arquivo de som diferente
                 releaseMediaPlayer();
 
-                // Get the {@link Word} object at the given position the user clicked on
+                // Obter o {@link Word} objeto na posição determinada, o usuário clicou em
                 Word word = words.get(position);
 
-                // Request audio focus for playback
+                //Solicite foco de áudio para reprodução
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
-                        // Use the music stream.
+                        // Use o fluxo de música.
                         AudioManager.STREAM_MUSIC,
-                        // Request permanent focus.
+                        // Solicite um foco permanente.
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    //we have a audio focus now.
+                    //agora temos um foco de áudio.
 
                     // Crie e configure o {@link MediaPlayer} para o recurso de áudio associado
                     // com a palavra atual
                     mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
 
-                    // Start the audio file
+                    // Inicie o arquivo de áudio
                     mMediaPlayer.start();
-
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
                 }
             }
@@ -147,9 +138,9 @@ public class NumbersActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        releaseMediaPlayer();
         super.onStop();
 
-    }
+        releaseMediaPlayer();
 
+    }
 }

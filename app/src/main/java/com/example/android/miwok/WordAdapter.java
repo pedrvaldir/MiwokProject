@@ -10,18 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by VALDIR on 12/11/2017.
  */
-
 public class WordAdapter extends ArrayAdapter<Word> {
 
     private int mColorResourceId;
-
 
     public WordAdapter(@NonNull Context context, @NonNull ArrayList<Word> androidWord, int colorResourceId) {
         super(context, 0, androidWord);
@@ -72,7 +68,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         // Define a cor de fundo do recipiente de texto View
         textContainer.setBackgroundColor(color);
-
 
         return listItemView;
     }

@@ -3,7 +3,6 @@ package com.example.android.miwok;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +35,6 @@ public class FamilyActivity extends AppCompatActivity {
                 // O caso AUDIOFOCUS_LOSS significa que perdemos foco de áudio e
                 // Parar reprodução e limpeza de recursos
                 releaseMediaPlayer();
-                // Stop playback
             }
         }
     };
@@ -58,7 +56,7 @@ public class FamilyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        //Create and setup the {@link AudioManager} to request audio focus
+        //Crie e configure o {@link AudioManager} para solicitar o foco de áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //CRIAR A LISTA DE PALAVRAS
@@ -93,28 +91,23 @@ public class FamilyActivity extends AppCompatActivity {
 
                 releaseMediaPlayer();
 
-                // Request audio focus for playback
+                // Solicite foco de áudio para reprodução
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
-                        // Use the music stream.
+                        // Use o fluxo de música.
                         AudioManager.STREAM_MUSIC,
-                        // Request permanent focus.
+                        // Solicite um foco permanente.
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    //we have a audio focus now.
-
+                    //agora temos um foco de áudio.
 
                     Word word = words.get(position);
-
                     mMediaPlayer = MediaPlayer.create(FamilyActivity.this, word.getAudioResourceId());
-
                     mMediaPlayer.start();
-
                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
                 }
             }
         });
-
     }
 
     /**
@@ -140,13 +133,10 @@ public class FamilyActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-
         super.onStop();
 
         // Quando a atividade for parada, libere os recursos do player de mídia porque não iremos
         // estar jogando mais sons.
         releaseMediaPlayer();
-
-
     }
 }

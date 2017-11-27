@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-
 import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
@@ -28,6 +27,7 @@ public class PhrasesActivity extends AppCompatActivity {
                 // Pausar a reprodução e reiniciar o jogador no início do arquivo. Dessa forma, podemos
                 // toque a palavra desde o início quando retomamos a reprodução.
                 mMediaPlayer.pause();
+
                 mMediaPlayer.seekTo(0);
             } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 // O caso AUDIOFOCUS_GAIN significa que recuperamos o foco e podemos retomar a reprodução.
@@ -36,7 +36,6 @@ public class PhrasesActivity extends AppCompatActivity {
                 // O caso AUDIOFOCUS_LOSS significa que perdemos foco de áudio e
                 // Parar reprodução e limpeza de recursos
                 releaseMediaPlayer();
-                // Stop playback
             }
         }
     };
@@ -53,13 +52,12 @@ public class PhrasesActivity extends AppCompatActivity {
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        //Create and setup the {@link AudioManager} to request audio focus
+        //Crie e configure o {@link AudioManager} para solicitar o foco de áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //CRIAR A LISTA DE PALAVRAS
@@ -93,32 +91,32 @@ public class PhrasesActivity extends AppCompatActivity {
                                                 // reproduzir um arquivo de som diferente
                                                 releaseMediaPlayer();
 
-                                                // Request audio focus for playback
+                                                // Solicite foco de áudio para reprodução
                                                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                                                         // Use the music stream.
                                                         AudioManager.STREAM_MUSIC,
+
                                                         // Request permanent focus.
                                                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                                                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                                                    //we have a audio focus now.
+                                                    //agora temos um foco de áudio.
 
-                                                    // Get the {@link Word} object at the given position the user clicked on
+                                                    //Obter o {@link Word} objeto na posição determinada, o usuário clicou no item especifico
                                                     Word word = words.get(position);
 
                                                     // Crie e configure o {@link MediaPlayer} para o recurso de áudio associado
                                                     // com a palavra atual
                                                     mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceId());
 
-                                                    // Start the audio file
+                                                    // Inicie o arquivo de áudio
                                                     mMediaPlayer.start();
 
                                                     mMediaPlayer.setOnCompletionListener(mCompletionListener);
                                                 }
-                                            }}
-
+                                            }
+                                        }
         );
-
     }
 
     /**
@@ -140,7 +138,6 @@ public class PhrasesActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-
         super.onStop();
 
         // Quando a atividade for parada, libere os recursos do player de mídia porque não iremos
@@ -150,6 +147,5 @@ public class PhrasesActivity extends AppCompatActivity {
         // Independentemente de ter ou não sido concedido foco de áudio, abandone-o. Isso também
         // anula o AudioFocusChangeListener para que não obtenhamos mais chamadas de retorno.
         mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
-
     }
 }

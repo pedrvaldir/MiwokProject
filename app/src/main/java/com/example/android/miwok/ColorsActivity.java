@@ -3,13 +3,11 @@ package com.example.android.miwok;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 
 import java.util.ArrayList;
 
@@ -30,6 +28,7 @@ public class ColorsActivity extends AppCompatActivity {
                 // toque a palavra desde o início quando retomamos a reprodução.
                 mMediaPlayer.pause();
                 mMediaPlayer.seekTo(0);
+
             } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
                 // O caso AUDIOFOCUS_GAIN significa que recuperamos o foco e podemos retomar a reprodução.
                 mMediaPlayer.start();
@@ -54,7 +53,7 @@ public class ColorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        //Create and setup the {@link AudioManager} to request audio focus
+        //Crie e configure o {@link AudioManager} para solicitar o foco de áudio
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //CRIAR A LISTA DE PALAVRAS
@@ -83,28 +82,23 @@ public class ColorsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
                 releaseMediaPlayer();
-                // Request audio focus for playback
+                // Solicite foco de áudio para reprodução
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
-                        // Use the music stream.
+                        // Use o fluxo de música.
                         AudioManager.STREAM_MUSIC,
-                        // Request permanent focus.
+                        // Solicite um foco permanente.
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    //we have a audio focus now.
+                    //agora temos um foco de áudio.
 
                     Word word = words.get(position);
-
                     mMediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getAudioResourceId());
-
                     mMediaPlayer.start();
                 }
-
             }
         });
-
     }
 
     private void releaseMediaPlayer() {
@@ -116,21 +110,15 @@ public class ColorsActivity extends AppCompatActivity {
             // Independentemente de ter ou não sido concedido foco de áudio, abandone-o. Isso também
             // anula o AudioFocusChangeListener para que não obtenhamos mais chamadas de retorno.
             mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
-
         }
     }
 
     @Override
     protected void onStop() {
-
         super.onStop();
 
         // Quando a atividade for parada, libere os recursos do player de mídia porque não iremos
         // estar jogando mais sons.
         releaseMediaPlayer();
-
-
     }
-
-
 }
